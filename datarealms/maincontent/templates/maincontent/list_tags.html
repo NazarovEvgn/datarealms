@@ -3,7 +3,7 @@
         {% for t in tags|slice:"5" %}
         <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
         {% endfor %}
-        <li><a class="all-tags-link" href="{% url 'home' %}">Все тэги</a></li>
+        <li><a class="all-tags-link" href="{% url 'all_tags' %}">Все тэги</a></li>
     </ul>
 {% endif %}
 

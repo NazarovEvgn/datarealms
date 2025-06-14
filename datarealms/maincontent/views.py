@@ -39,6 +39,10 @@ def contact(request):
     return render(request, 'maincontent/contact.html', context=data)
 
 
+def all_tags(request):
+    return render(request, 'maincontent/all_tags.html', context=data)
+
+
 def show_post(request, post_slug):
     post = get_object_or_404(Article, slug=post_slug)
 
