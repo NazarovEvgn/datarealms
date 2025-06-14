@@ -40,7 +40,9 @@ def contact(request):
 
 
 def all_tags(request):
-    return render(request, 'maincontent/all_tags.html', context=data)
+    return render(request, 'maincontent/all_tags.html', {
+        'show_tags': False
+    })
 
 
 def show_post(request, post_slug):

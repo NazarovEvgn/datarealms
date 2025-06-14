@@ -14,7 +14,10 @@
 
 <body>
     {% include 'maincontent/includes/header.html' %}
-    {% include 'maincontent/includes/tags.html' %}
+    
+    {% if show_tags is not False %}
+        {% include 'maincontent/includes/tags.html' %}
+    {% endif %}
      
     {% block content %} 
     {% endblock %}

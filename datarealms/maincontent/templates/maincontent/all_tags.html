@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
+{% load article_tags %}
+
 {% block title %}"Области данных" - Все темы{% endblock %}
 
 {% block content %}
 <article class="post-container">
 <h1 class="post-title">Все тэги</h1>
 </article>
+
+<div class="tags">
+    <div class="container">
+        <ul class="tag-list">
+            <li class="tag-section">{% show_all_tags %}</li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
