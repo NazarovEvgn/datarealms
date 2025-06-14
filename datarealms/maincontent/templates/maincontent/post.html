@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block tags%}
+<!-- Теги -->
+{% with post.tags.all as tags %}
+{% if tags %}
+<ul class="tags-list">
+    <li>Теги:</li>
+    {% for t in tags %}
+    <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endblock %}
+
+{% block content %}
+<article class="post-container">
+    <p class="post-date">{{post.time_update|date:"d-m-Y"}}</p>
+    <h1 class="post-title">{{post.title}}</h1>
+
+    {{post.content|safe}}
+    <a href="{% url 'home' %}" class="all-tags-link-post">На главную страницу</a>   
+</article>
+
+{% endblock %}

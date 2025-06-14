@@ -1,0 +1,19 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="copyright">
+                © 2025 Области данных.
+            </div>     
+            <div class="contact-info">
+                <p>Email: info@datarealms.ru</p>
+            </div>
+        </div>
+        <ul class="footer-nav">
+            {% for m in menu %}
+                <li class="footer-nav-item{% if not forloop.last %}-section{% endif %}">
+                    <a href="{% url m.url_name %}">{{ m.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</footer>

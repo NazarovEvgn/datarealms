@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}"ОБЛАСТИ ДАННЫХ — Поиск"{% endblock %}
+
+{% block content %}
+    <ul class="articles-main-list">
+        {% if query %}
+            <p class="last-publications">Результаты поиска по запросу: "{{ query }}"</p>
+        {% else %}
+            <p class="last-publications">Поиск</p>
+        {% endif %}
+
+        {% if results %}
+            {% for p in results %}
+                <li class="main-list">
+                    <div class="articles-header">
+                        <p class="post-date">{{ p.time_update|date:"d-m-Y" }}</p>
+                    </div>
+                    <h1 class="post-title">{{ p.title }}</h1>
+                    <h2 class="post-description">{{ p.description }}</h2>
+                    <p class="post-link-to-open"><a href="{{ p.get_absolute_url }}">Читать полностью</a></p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="main-list">
+                <h2 class="post-description">Ничего не найдено по вашему запросу.</h2>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

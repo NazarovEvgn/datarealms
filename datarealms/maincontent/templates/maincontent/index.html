@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}"ОБЛАСТИ ДАННЫХ"{% endblock %}
+
+<--! ПУБЛИКАЦИИ НА ГЛАВНОЙ СТРАНИЦЕ --!>
+{% block content %}
+	<ul class="articles-main-list">
+		<p class="last-publications">Последние публикации</p>
+		{% for p in posts %}
+				<li class="main-list"><div class="articles-header">
+					<p class="post-date">{{p.time_update|date:"d-m-Y"}}</p>
+					</div>
+					<h1 class="post-title">{{p.title}}</h1>
+            		<h2 class="post-description">{{p.description}}</h2>
+            		<p class="post-link-to-open"><a href="{{ p.get_absolute_url }}">Читать полностью</a></p>
+				</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

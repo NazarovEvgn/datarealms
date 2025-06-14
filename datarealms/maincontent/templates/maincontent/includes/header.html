@@ -1,0 +1,47 @@
+{% load static %}
+{% load article_tags %}
+
+<header class="header">
+
+    <div class="container-adaptive">
+
+        <div class="container">
+
+            <!-- Логотип -->
+            <div class="logo-container">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" alt="Логотип"></a>
+                <a href="{% url 'home' %}" class="logo-text">Области данных</a>
+            
+                <!-- Кнопка меню -->
+                <button class="menu-button" aria-label="Открыть меню навигации">Меню</button>
+
+            </div>
+
+            <!-- Меню навигации -->
+            <nav class="category-menu">
+                <ul class="category">
+                    {% show_categories cat_selected %}
+                </ul>
+            </nav>
+
+            <!-- Поисковая форма -->
+            <form class="search-form" method="get" action="{% url 'search' %}">
+                <input type="search" name="query" placeholder="Поиск..." value="{{ request.GET.query }}">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    
+    
+        <!-- Меню категорий в адаптиве -->
+        <nav class="category-menu-adaptive" id="categoryMenu">
+            <ul class="category-adaptive">
+                {% show_categories cat_selected %}
+            </ul>
+        </nav>
+    
+    </div>
+
+</header>
+
