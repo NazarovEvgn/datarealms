@@ -8,8 +8,7 @@ from django.db.models import Q
 
 from .models import Article, Category, TagPost
 
-menu = [{'title': "О проекте", 'url_name': 'about'},
-        {'title': "Обратная связь", 'url_name': 'contact'},
+menu = [{'title': "О проекте", 'url_name': 'about'}
 ]
 
 data = {
@@ -33,10 +32,6 @@ def index(request):
 
 def about(request):
     return render(request, 'maincontent/about.html', context=data)
-
-
-def contact(request):
-    return render(request, 'maincontent/contact.html', context=data)
 
 
 def all_tags(request):

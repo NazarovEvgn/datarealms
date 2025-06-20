@@ -177,12 +177,11 @@ img {
 }
 
 
-/* Подвал (Footer) */
+/*________FOOTER________*/
 
 .footer {
     width: 100%;
     min-height: 200px;
-    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,27 +190,30 @@ img {
     color: white;
 }
 .copyright {
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 12px;
+    font-size: 14px;
 }
 .contact-info {
-    font-size: 16px;
-    font-weight: 100;
-    line-height: 1.5;
+    font-weight: bold;
+    padding-bottom: 32px;
 }
 .footer-nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
-    gap: 24px;
+    padding-inline-start: 0;
+    margin: 0;
+    padding-bottom: 16px;
 }
-.footer-nav-item a {
-    color: inherit;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 300;
-}
+    .footer-nav ul {
+        padding-inline-start: 0;
+        margin: 0;
+    }
+    .footer-nav-item a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
 
 /*________ARTICLES________*/
