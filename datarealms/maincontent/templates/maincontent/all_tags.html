@@ -5,15 +5,23 @@
 {% block title %}"Области данных" - Все темы{% endblock %}
 
 {% block content %}
-<article class="post-container">
-<h1 class="post-title">Все тэги</h1>
-</article>
 
-<div class="tags">
-    <div class="container">
-        <ul class="tag-list">
-            <li class="tag-section">{% show_all_tags %}</li>
-        </ul>
-    </div>
+<div class="tags-container">
+
+    {% for group in category_tags %}
+        <section class="tag-section">
+            
+            <h2><a href="{{ group.category.get_absolute_url }}">{{ group.category.name }}</a></h2>
+            
+            <ul>
+                {% for tag in group.tags %}
+                <li><a href="{{ tag.get_absolute_url }}">{{ tag.tag }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </section>
+    {% endfor %}
+
 </div>
+
 {% endblock %}

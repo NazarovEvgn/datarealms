@@ -35,8 +35,27 @@ def about(request):
 
 
 def all_tags(request):
+
+    categories = Category.objects.all()
+
+    category_tags = []
+
+    for category in categories:
+        # Получаем статьи в этой категории
+        articles = Article.objects.filter(cat=category, is_published=True)
+
+        # Получаем уникальные теги, связанные с этими статьями
+        tags = TagPost.objects.filter(tags__in=articles).distinct()
+
+        if tags.exists():
+            category_tags.append({
+                'category': category,
+                'tags': tags
+            })
+
     return render(request, 'maincontent/all_tags.html', {
-        'show_tags': False
+        'show_tags': False,
+        'category_tags': category_tags
     })
 
 
