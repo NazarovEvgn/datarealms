@@ -55,7 +55,7 @@ img {
 
 .header {
     width: 100%;
-    background: #07253e;
+    background: #021631;
     color: white;
     padding: 20px 0;
     display: flex;
@@ -71,7 +71,7 @@ img {
 }
 .logo-text {
     font-size: 20px;
-    font-weight: normal;
+    font-weight: bold;
     color: white;
     text-decoration: none;
 }
@@ -79,9 +79,9 @@ img {
     display: inline;
     margin: 0 20px 0 20px;
     padding: 10px 20px;
-    background-color: #B6DAFF;
+    background-color: #eeeeee;
     font-weight: semi-bold;
-    color: #07253e;
+    color: #021631;
     text-decoration: none;
     border-radius: 8px;
     border: transparent;
@@ -100,8 +100,8 @@ img {
 .category li {
     padding: 0 20px;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
 }
     .category li:first-child {
         padding: 0 20px 0 20px;
@@ -193,17 +193,19 @@ img {
 .tag-section li {
     flex: 0 0 auto; /* не сжимается, не растягивается */
     padding: 10px 20px;
-    background-color: #B6DAFF;
+    background-color: #dddddd;
     border-radius: 8px;
     font-size: 16px;
     white-space: nowrap; /* не переносить текст внутри */
     transition: background-color 0.3s ease;
 }
 .tag-section li:hover {
-    color: white;
-    background-color: #072B50;
+    background-color: #e7ecff;
 }
-.all-tags-link,
+.all-tags-link {
+    all: unset;
+    cursor: pointer;
+}
 .all-tags-link-post {
     display: inline-block;
     font-weight: normal;
@@ -224,7 +226,7 @@ img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #07253e;
+    background: #021631;
     color: white;
     margin-top: 100px;
 }
@@ -406,7 +408,7 @@ img {
         display: none;
         flex-direction: column;
         width: 100%;
-        background: #07253e;
+        background: #021631;
         padding: 10px 0;
     }
 
@@ -414,7 +416,7 @@ img {
         display: none; /* скрыто по умолчанию */
         flex-direction: column;
         width: 100%;
-        background: #07253e;
+        background: #021631;
     }
 
     /* Открываем меню при нажатии */

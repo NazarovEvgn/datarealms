@@ -1,9 +1,9 @@
 {% if tags %}
     <ul>
-        {% for t in tags|slice:"5" %}
+        {% for t in tags|slice:"8" %}
         <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
         {% endfor %}
-        <li><a class="all-tags-link" href="{% url 'all_tags' %}">Все тэги</a></li>
+        <li><a class="all-tags-link" href="{% url 'all_tags' %}">Показать все тэги</a></li>
     </ul>
 {% endif %}
 
