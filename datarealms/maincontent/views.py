@@ -35,16 +35,12 @@ def about(request):
 
 
 def all_tags(request):
-
     categories = Category.objects.all()
 
     category_tags = []
 
     for category in categories:
-        # Получаем статьи в этой категории
         articles = Article.objects.filter(cat=category, is_published=True)
-
-        # Получаем уникальные теги, связанные с этими статьями
         tags = TagPost.objects.filter(tags__in=articles).distinct()
 
         if tags.exists():
@@ -55,7 +51,8 @@ def all_tags(request):
 
     return render(request, 'maincontent/all_tags.html', {
         'show_tags': False,
-        'category_tags': category_tags
+        'category_tags': category_tags,
+        'menu': menu
     })
 
 
@@ -81,6 +78,7 @@ def show_category(request, cat_slug):
         'menu': menu,
         'posts': posts,
         'cat_selected': category.pk,
+        'category_name': category.name,
     }
     return render(request, 'maincontent/index.html', context=data)
 
@@ -93,11 +91,18 @@ def show_tag_postlist(request, tag_slug):
     tag = get_object_or_404(TagPost, slug=tag_slug)
     posts = tag.tags.filter(is_published=Article.Status.PUBLISHED).select_related('cat')
 
+    categories = set(post.cat for post in posts if post.cat)
+
+    category_name = None
+    if len(categories) == 1:
+        category_name = list(categories)[0].name
+
     data = {
         'title': f"Тег: {tag.tag}",
         'menu': menu,
         'posts': posts,
         'cat_selected': None,
+        'category_name': category_name,
     }
 
     return render(request, 'maincontent/index.html', context=data)
